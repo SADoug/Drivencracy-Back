@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-export default async function pollPostmiddleware(req, res, next){
+export default async function pollPostmiddleware(req, res, next) {
     const { expireEm } = req.body;
 
     if (!expireEm) {
@@ -10,6 +10,6 @@ export default async function pollPostmiddleware(req, res, next){
     if (!title) {
         return res.status(422).send("Titulo não pode ser vazio");
     }
-        
+
     next();
 }

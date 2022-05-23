@@ -1,6 +1,5 @@
 import db from "../config/db.js";
 
-
 export async function resultpost(req, res) {
     let id = req.params.id;
     console.log(id)

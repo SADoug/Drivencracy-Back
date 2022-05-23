@@ -1,7 +1,7 @@
 import db from "../config/db.js";
 import joi from "joi";
 
-export default async function choicePostmiddleware(req, res, next){
+export default async function choicePostmiddleware(req, res, next) {
     const opcaoSchema = joi.object({
         title: joi.string().min(1).required(),
         poolId: joi.any().required(),

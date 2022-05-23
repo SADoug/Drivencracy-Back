@@ -6,5 +6,4 @@ const pollRouter = Router();
 pollRouter.post("/poll", pollPostmiddleware, pollpost);
 pollRouter.get("/poll", pollget);
 
-
 export default pollRouter;

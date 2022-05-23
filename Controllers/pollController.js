@@ -1,5 +1,4 @@
-import db from "../config/db.js";7
-import chalk from "chalk";
+import db from "../config/db.js";
 
 export async function pollpost(req, res) {
     const { title, expireAt } = req.body;
@@ -7,13 +6,10 @@ export async function pollpost(req, res) {
         await db.collection("enquetes").insertOne({ title, expireAt });
         res.status(201).send("Enquete cadastrada no banco de dados")
     }
-
     catch (e) {
         return res.status(400).send("Erro ao registrar enquete!", e);
     }
-
 };
-
 
 export async function pollget(req, res) {
     try {

@@ -1,4 +1,4 @@
-import {MongoClient} from "mongodb";
+import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import chalk from "chalk";
 dotenv.config();
