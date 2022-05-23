@@ -1,18 +1,21 @@
 import db from "../config/db.js";
-import chalk from "chalk";
+import dayjs from "dayjs";
 
-export async function choicepost(req, res) {
-    let id = req.params.id;
+export async function votePost(req, res) {
+    const { id } = req.params;
+    const data = dayjs().format("YYYY-MM-DD HH:mm");
+
     try {
-        const opção = await db.collection("opcoes").updateOne(
-            { id: `${id}` },
-            { $inc: { vote: 1 } }
+        const opção = await db.collection("opcoes").insertOne(
+            {
+                votoData: data,
+                votoId: id,
+            }
         );
-        console.log(chalk.green.bold("Voto cadastrado no banco de dados!"));
-        res.sendStatus(201);
+        res.status(201).send("Voto cadastrado no banco de dados!");
     }
-    catch (e) {
-        return res.status(400).send("Erro ao registrar a opção!", e);
+    catch {
+        return res.status(400).send("Erro ao registrar a opção!");
     }
 
 
